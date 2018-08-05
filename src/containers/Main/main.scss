@@ -1,0 +1,15 @@
+@import "../../styles/constants.scss";
+
+.main-container {
+    background-color: $mainBg;
+
+    &__message-list {
+        height: 90vh;
+    }
+    
+    &__add-message {
+        height: 10vh;
+        border-top: 1px solid black;
+    }
+
+}
