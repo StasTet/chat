@@ -1,10 +1,10 @@
-export const sendMessage = (payload) => new Promise((resolve, reject) => {
-    setTimeout(() => {
-        const data = {
-            status: 200,
-            data: payload
-        };
+import axios from 'axios';
+import { mock } from '../utils'; 
 
-        return resolve(data);
-    }, 500);
-});
+import { API_MESSAGES } from '../constants/routs';
+
+export const sendMessage = (payload) => {
+    mock.onPost(API_MESSAGES, { params: payload }).reply(200, { username: payload.username, message: payload.message });
+
+    return axios.post(API_MESSAGES, { params : payload });
+};

@@ -4,7 +4,7 @@ import { Row, Col, Form, Button } from 'reactstrap';
 import { Field, reduxForm, SubmissionError } from 'redux-form';
 import isEmpty from 'lodash/isEmpty';
 
-import { renderField } from '../../utils';
+import { Field as CustomField } from '../Field';
 
 class AddMessage extends Component {
     onSubmit = (value) => {
@@ -35,7 +35,7 @@ class AddMessage extends Component {
                 <Col xs={12}>
                     <Form onSubmit={handleSubmit(this.onSubmit)} inline className="align-items-start">
                         <Col xs={12} md={10}>
-                            <Field name="message" type="text" component={renderField} className="w-100" />
+                            <Field name="message" type="text" component={CustomField} className="w-100" />
                         </Col>
 
                         <Col xs={12} md={2}>

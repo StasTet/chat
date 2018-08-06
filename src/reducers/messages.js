@@ -1,4 +1,5 @@
 import { ADD_MESSAGE_FAIL, ADD_MESSAGE_SUCCESS, ADD_MESSAGE } from '../actions/messages';
+import { SERVER_ERROR } from '../constants/locale';
 
 const initialState = {
     messages: [],
@@ -22,7 +23,7 @@ const messages = (state = initialState, action) => {
         case ADD_MESSAGE_FAIL:
             return {
                 ...state,
-                error: 'Server error'
+                error: SERVER_ERROR
             };
 
         case ADD_MESSAGE:

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col, Button, Form, FormGroup } from 'reactstrap';
+import { Row, Col, Button, Form } from 'reactstrap';
 import { connect } from 'react-redux';
 import { Field, reduxForm, SubmissionError } from 'redux-form';
 import isEmpty from 'lodash/isEmpty';
 
-import { renderField } from '../../utils';
+import { Field as CustomField } from '../../components/Field';
 import { signIn } from '../../actions/login';
 
 import './style.scss';
@@ -43,7 +43,7 @@ class Login extends Component {
                 <Row>
                     <Col xs={12}>
                         <Form onSubmit={handleSubmit(this.onSubmit)} className="login-container__form">
-                            <Field name="username" type="text" component={renderField} label="Username" />
+                            <Field name="username" type="text" component={CustomField} label="Username" />
                             <Button type="submit" color="primary" className="login-container__form__btn btn-block">Sign-in</Button>
                         </Form>
                     </Col>
