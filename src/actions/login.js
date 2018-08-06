@@ -1,5 +1,10 @@
 import { signInUser } from '../api/user';
+import 'babel-polyfill';
+import { handleNewMessage } from '../sagas';
+import setupSocket from '../sockets';
 
+
+export const ADD_USER = 'ADD_USER';
 export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
 export const SIGN_IN_FAIL = 'SIGN_IN_FAIL';
 export const SIGN_OUT = 'SIGN_OUT';
@@ -26,9 +31,8 @@ export const signIn = (payload) => {
     };
 };
 
-export const signOut = (payload) => {
+export const signOut = () => {
     return {
-        type: SIGN_OUT,
-        payload
+        type: SIGN_OUT
     };
 };

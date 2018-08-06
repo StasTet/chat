@@ -5,7 +5,7 @@ import { hot } from 'react-hot-loader';
 import { Router, Route, Switch } from 'react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 
-import Main from '../Main';
+import Chat from '../Chat';
 import Login from '../Login';
 
 import { setUser } from '../../actions/user';
@@ -42,9 +42,9 @@ class Root extends Component {
     render() {
         return (
             <Router history={history}>
-                <div className="container">
+                <div className="main-layout">
                     <Switch>
-                        <Route exact path={MAIN} component={Main} />
+                        <Route exact path={MAIN} component={Chat} />
                         <Route path={LOGIN} component={Login} />
                     </Switch>
                 </div>

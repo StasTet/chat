@@ -6,8 +6,6 @@ import isEmpty from 'lodash/isEmpty';
 
 import { renderField } from '../../utils';
 
-// import './main.scss';
-
 class AddMessage extends Component {
     onSubmit = (value) => {
         const errors = {};
@@ -30,25 +28,28 @@ class AddMessage extends Component {
     }
 
     render() {
-        const { error, handleSubmit } = this.props;
+        const { handleSubmit } = this.props;
 
         return (
-            <div className="add-message">
-               <Form onSubmit={handleSubmit(this.onSubmit)} inline>
-                    <Field name="message" type="text" component={renderField} />
-                    <Button type="submit" color="primary">Send</Button>
-                    {error && <span>{error}</span>}
-                </Form>
-            </div>
+            <Row className="add-message pt-3">
+                <Col xs={12}>
+                    <Form onSubmit={handleSubmit(this.onSubmit)} inline className="align-items-start">
+                        <Col xs={12} md={10}>
+                            <Field name="message" type="text" component={renderField} className="w-100" />
+                        </Col>
+
+                        <Col xs={12} md={2}>
+                            <Button type="submit" color="primary" className="btn-block">Send</Button>
+                        </Col>
+                        
+                    </Form>
+                </Col>
+            </Row>
         );
     }
 }
 
-AddMessage.defaultProps  = {
-};
-
 AddMessage.propTypes = {
-    error: PropTypes.string,
     handleSubmit: PropTypes.func,
     addMessage: PropTypes.func,
 };

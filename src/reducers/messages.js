@@ -1,4 +1,4 @@
-import { ADD_MESSAGE_FAIL, ADD_MESSAGE_SUCCESS } from '../actions/messages';
+import { ADD_MESSAGE_FAIL, ADD_MESSAGE_SUCCESS, ADD_MESSAGE } from '../actions/messages';
 
 const initialState = {
     messages: [],
@@ -25,6 +25,7 @@ const messages = (state = initialState, action) => {
                 error: 'Server error'
             };
 
+        case ADD_MESSAGE:
         default:
             return state;
     }

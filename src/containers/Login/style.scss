@@ -1,0 +1,17 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    &__form {
+        &__btn {
+            display: flex;
+            justify-content: center;
+        }
+
+        .error {
+            text-align: center;
+        }
+    }
+}

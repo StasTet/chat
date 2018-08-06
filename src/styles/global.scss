@@ -1,6 +1,7 @@
 @import "./constants.scss";
 @import "./reset.scss";
 
-.container {
+.main-layout {
     height: 100vh;
+    display: flex;
 }

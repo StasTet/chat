@@ -5,31 +5,31 @@ import { connect } from 'react-redux';
 import MessagesList from '../../components/MessagesList';
 import AddMessage from '../../components/AddMessage';
 
-import { addMessage } from '../../actions/messages';
+import { addMessageRequest } from '../../actions/messages';
 import { signOut } from '../../actions/login';
 import { LOGIN } from '../../constants/routs';
 
-import './main.scss';
+import './style.scss';
 
 const mapStateToProps = ({ user, messages}) => ({ user, messages });
 
 const mapDispatchToProps = (dispatch) => ({
-    addMessage: (message) => dispatch(addMessage(message)),
+    addMessage: (message) => dispatch(addMessageRequest(message)),
     signOut: () => dispatch(signOut())
 });
 
-class Main extends Component {
+class Chat extends Component {
     handleLogout = () => {
         this.props.signOut();
         this.props.history.push(LOGIN);
         sessionStorage.removeItem('user');
     }
-
+  
     render() {
         const { addMessage, user, messages } = this.props;
 
         return (
-            <div className="main-container">
+            <div className="container chat-container">
                 <Row>
                     <Col xs={12}>
                         <Button onClick={this.handleLogout}>
@@ -37,14 +37,14 @@ class Main extends Component {
                         </Button>
                     </Col>
                 </Row>
-                <Row className="main-container__message-list">
+                <Row className="chat-container__message-list">
                     <Col xs={12}>
                         <MessagesList messages={messages.messages}/>
                     </Col>
                 </Row>
-                <Row className="main-container__add-message">
+                <Row className="chat-container__add-message">
                     <Col xs={12}>
-                        <AddMessage addMessage={(message) => addMessage({username: user.user, message})}/>
+                        <AddMessage addMessage={(message) => addMessage({username: user.user, message})} />
                     </Col>
                 </Row>
             </div>
@@ -52,10 +52,7 @@ class Main extends Component {
     }
 }
 
-Main.defaultProps  = {
-};
-
-Main.propTypes = {
+Chat.propTypes = {
     user: PropTypes.object,
     addMessage: PropTypes.func,
     messages: PropTypes.object,
@@ -63,4 +60,4 @@ Main.propTypes = {
     history: PropTypes.object
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main); 
+export default connect(mapStateToProps, mapDispatchToProps)(Chat); 

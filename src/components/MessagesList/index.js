@@ -2,22 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'reactstrap';
 
-// import './main.scss';
+import { Message } from '../Message';
+
+import './style.scss';
 
 export const MessagesList = (props) => {
     const { messages } = props;
 
     return (
-        <div className="messages-list">
+        <div className="message-list">
             <Row>
                 <Col xs={12}>
                     {
                         messages.map((message => {
                             return (
-                                <p key={message.id}>
-                                    <span>{message.username}</span>:
-                                    <span> {message.message} </span>
-                                </p>
+                                <Message
+                                    key={message.id}
+                                    username={message.username}
+                                    message={message.message}
+                                />
                             );
                         }))
                     }
