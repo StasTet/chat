@@ -16,6 +16,11 @@ server.on('connection', (ws) => {
 
         switch (data.type) {
             case 'ADD_MESSAGE':
+                ws.send(JSON.stringify({
+                    type: 'ADD_MESSAGE',
+                    payload: data.payload
+                }))
+
                 broadcast({
                     type: 'ADD_MESSAGE',
                     payload: data.payload
